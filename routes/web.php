@@ -13,6 +13,15 @@
 |
 */
 
-$router->get('/', function () use ($router) {
-    return $router->app->version();
+$router->get('/', function () {
+    return redirect('nasabah');
 });
+
+$router->get('nasabah', ['uses' => 'NasabahController@index']);
+$router->post('nasabah', ['uses' => 'NasabahController@store']);
+
+$router->get('transaksi', ['uses' => 'TransaksiController@index']);
+$router->post('transaksi', ['uses' => 'TransaksiController@store']);
+
+$router->get('poin', ['uses' => 'TransaksiController@poin']);
+$router->get('laporan', ['uses' => 'TransaksiController@laporan']);
